@@ -27,13 +27,11 @@
     "fixup": "node fixup.js",
     "build": "npm run generate:mjs && npm run generate:cjs && npm run fixup"
   },
-  "dependencies": {
-    "formidable": "^3.5.1",
-    "hexoid": "^1.0.0",
-    "superagent": "^8.1.2"
-  },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.9.0",
     "rimraf": "^5.0.5"
+  },
+  "dependencies": {
+    "superagent": "^7.1.5"
   }
 }
