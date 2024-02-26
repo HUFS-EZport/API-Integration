@@ -2,12 +2,12 @@
   "name": "@hufs-ezport/api-client",
   "description": "Ezports API client",
   "version": "1.0.0",
-  "main": "lib/dist/index.js",
-  "module": "lib/src/index.js",
+  "main": "lib/mjs/index.js",
+  "module": "lib/cjs/index.js",
   "exports": {
     ".": {
-      "import": "./lib/src/index.js",
-      "require": "./lib/dist/index.js"
+      "import": "./lib/mjs/index.js",
+      "require": "./lib/cjs/index.js"
     }
   },
   "type": "module",
@@ -21,10 +21,11 @@
     "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
-    "prebuild": "rimraf lib",
-    "generate:mjs": "openapi-generator-cli generate -i openapi.json -g javascript -o lib",
-    "generate:cjs": "cd lib && npm install && npm run build",
-    "build": "npm run generate:mjs && npm run generate:cjs"
+    "prebuild": "rimraf lib && rimraf dist",
+    "generate:mjs": "openapi-generator-cli generate -i openapi.json -g javascript -o dist",
+    "generate:cjs": "cd dist && npm install && npm run build",
+    "fixup": "node fixup.js",
+    "build": "npm run generate:mjs && npm run generate:cjs && npm run fixup"
   },
   "dependencies": {
     "axios": "^1.6.7"

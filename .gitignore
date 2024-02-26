@@ -3,6 +3,7 @@
 
 # Built API client source files
 lib
+dist
 
 # Node.js dependencies
 node_modules
