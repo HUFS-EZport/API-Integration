@@ -2,8 +2,7 @@
 .idea
 
 # Built API client source files
-src
-dist
+lib
 
 # Node.js dependencies
 node_modules
